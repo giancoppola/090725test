@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from 'cors'
+import 'dotenv/config'
 import * as path from "node:path";
+import data from './data.json'
 const app = express()
 const port = process.env.PORT || 3000
 
@@ -26,7 +28,8 @@ app.get("/health", (req, res) => {
 })
 
 app.get('/lottery', (req, res) => {
-    res.sendFile(path.join(process.cwd(),'data.json'));
+    // res.sendFile(path.join(process.cwd(),'data.json'));
+    res.status(200).json(data)
 })
 
 app.get("*name", (req, res) => {
@@ -34,5 +37,6 @@ app.get("*name", (req, res) => {
 })
 
 app.listen(port, () => {
+    console.log(process.env.PORT);
     console.log(`App listening on http://localhost:${port}`)
 })

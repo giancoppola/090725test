@@ -1,7 +1,7 @@
 import type {iLotteryApiResponse} from "./types.ts";
+const url = "http://localhost:4000/lottery"
 
 export const FetchLotteryData = async (): Promise<iLotteryApiResponse> => {
-    const url = "http://localhost:3000/lottery";
     try {
         const response = await fetch(url);
         return {
