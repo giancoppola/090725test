@@ -3,8 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "workspaces": ["src/packages/server", "src/packages/client"],
   "scripts": {
-    "dev": "concurrently 'tsx watch server.ts' 'vite'",
+    "dev": "concurrently 'tsx watch src/packages/server/server.ts' 'npm --prefix ./src/packages/client run dev'",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
